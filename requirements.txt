@@ -1,0 +1,7 @@
+pyspark>=3.5.0
+pandas>=2.0
+numpy>=1.24
+mlflow>=2.10
+azure-ai-ml>=1.18
+azure-identity>=1.15
+azureml-mlflow>=1.57
