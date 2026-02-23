@@ -1,0 +1,30 @@
+# Example skeleton - azure-pipelines.yml
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.10'
+
+- script: |
+    pip install -r requirements.txt
+    pip install azure-ai-ml azure-identity mlflow azureml-mlflow
+  displayName: 'Install deps'
+
+- script: |
+    python train.py  # ← your training script
+  displayName: 'Train & log model to MLflow'
+
+- task: AzureCLI@2
+  displayName: 'Register model & deploy to staging AKS'
+  inputs:
+    azureSubscription: 'Your-Azure-Sub'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      # Use az ml or Python SDK here to register & deploy
+      # Example: az ml model create ... then deploy to AKS endpoint
