@@ -22,7 +22,7 @@ steps:
 - task: AzureCLI@2
   displayName: 'Register model & deploy to staging AKS'
   inputs:
-    azureSubscription: 'Your-Azure-Sub'
+    azureSubscription: 'Azure for Students'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: |
