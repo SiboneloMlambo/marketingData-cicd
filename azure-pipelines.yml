@@ -16,7 +16,7 @@ steps:
   displayName: 'Install deps'
 
 - script: |
-    python train.py  # ← your training script
+    python train_modl.py  # ← your training script
   displayName: 'Train & log model to MLflow'
 
 - task: AzureCLI@2
